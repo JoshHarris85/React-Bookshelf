@@ -24,9 +24,17 @@ class BooksApp extends React.Component {
   }
 
   render() {
+    // const { } = this.props
+    const { books, showSearchPage } = this.state
+
+    let readingShelf, readShelf, wantToReadShelf
+    readingShelf = books.filter((book) => book.shelf === "currentlyReading")
+    readShelf = books.filter((book) => book.shelf === "read")
+    wantToReadShelf = books.filter((book) => book.shelf === "wantToRead")
+
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
+        {showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">
               <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
@@ -54,9 +62,9 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <CurrentlyReading/>
-                <WantToRead/>
-                <FinishedReading/>
+                <CurrentlyReading books={readingShelf}/>
+                <WantToRead books={wantToReadShelf}/>
+                <FinishedReading books={readShelf}/>
               </div>
             </div>
             <div className="open-search">
