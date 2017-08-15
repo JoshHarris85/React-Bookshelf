@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './App.css'
 
 class SearchButton extends React.Component {
@@ -6,7 +7,7 @@ class SearchButton extends React.Component {
   render() {
     return (
       <div className="open-search">
-        <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+        <Link to='/search'>Add a book</Link>
       </div>
     )
   }
