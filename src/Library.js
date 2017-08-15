@@ -6,7 +6,7 @@ import './App.css'
 class Library extends React.Component {
 
   render() {
-    const { books, shelves } = this.props
+    const { books, shelves, onUpdateBook } = this.props
 
     return (
       <div className="list-books">
@@ -19,6 +19,7 @@ class Library extends React.Component {
             <Shelf
               books={books.filter((book) => book.shelf === shelf.name)}
               shelf={shelf}
+              onUpdateBook={onUpdateBook}
               key={shelf.name}
             />
           ))}
