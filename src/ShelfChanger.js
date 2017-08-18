@@ -12,7 +12,7 @@ class ShelfChanger extends React.Component {
     const { book } = this.props
     return (
       <div className="book-shelf-changer">
-        <select onChange={this.handleSelect} value={book.shelf}>
+        <select onChange={this.handleSelect} value={book.shelf ? book.shelf : 'none'}>
           <option value="none" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>

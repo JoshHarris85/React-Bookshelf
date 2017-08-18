@@ -11,17 +11,17 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books });
+    BooksAPI.getAll().then(books => {
+      this.setState({ books })
     })
   }
 
   updateBook(book, shelf) {
     BooksAPI.update(book, shelf).then(response => {
       this.setState(state => {
-        books: state.books.map(stateBook =>
+        books: state.books.map((stateBook) => {
           stateBook.shelf = stateBook.id === book.id ? shelf : stateBook.shelf
-        )
+        })
       })
     })
   }
@@ -48,7 +48,11 @@ class BooksApp extends React.Component {
         )}/>
 
         <Route exact path='/search' render={() => (
-          <Search />
+          <Search
+          onUpdateBook={(book, shelf) => {
+            this.updateBook(book, shelf)
+          }}
+          />
         )}/>
 
       </div>
