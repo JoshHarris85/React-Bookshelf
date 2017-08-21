@@ -24,12 +24,13 @@ class Search extends React.Component {
 
   updateQuery = (query) => {
     this.setState({ query })
-    if(query !== '') this.searchBooks(query)
+    if(query.length !== 0) this.searchBooks(query);
+    else this.setState({ query: '', foundBooks: []} );
   }
 
   render() {
-    const { onUpdateBook } = this.props
-    const { foundBooks, query } = this.state
+    const { onUpdateBook } = this.props;
+    const { foundBooks, query } = this.state;
 
     return (
       <div className="search-books">
@@ -45,8 +46,8 @@ class Search extends React.Component {
               you don't find a specific author or title. Every search is limited by search terms.
             */}
             <input
-              type='text'
-              placeholder='Search by title or author'
+              type="text"
+              placeholder="Search by title or author"
               value={query}
               onChange={(event) => this.updateQuery(event.target.value)}
             />

@@ -12,7 +12,7 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksAPI.getAll().then(books => {
-      this.setState({ books })
+      this.setState({ books });
     })
   }
 
@@ -25,7 +25,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    const { books } = this.state
+    const { books } = this.state;
     const SHELVES = [
                       {title: 'Currently Reading', name: 'currentlyReading'},
                       {title: 'Read', name: 'read'},

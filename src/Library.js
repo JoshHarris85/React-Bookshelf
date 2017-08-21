@@ -1,9 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Shelf from './Shelf'
 import SearchButton from './SearchButton'
 import './App.css'
 
 class Library extends React.Component {
+
+  static propTypes = {
+    books: PropTypes.array.isRequired,
+    shelves: PropTypes.array.isRequired,
+    onUpdateBook: PropTypes.func.isRequired
+  }
 
   render() {
     const { books, shelves, onUpdateBook } = this.props
