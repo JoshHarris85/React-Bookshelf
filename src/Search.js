@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-// import debounce from 'lodash/function/debounce';
+import debounce from 'lodash.debounce'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Book from './Book'
@@ -18,16 +18,24 @@ class Search extends React.Component {
     query: ''
   }
 
-  searchBooks(query) {
-    BooksAPI.search(query, 20).then((foundBooks) => {
-      if(!foundBooks.error) this.setState({ foundBooks });
-    })
-  }
+  debouncedSearch = debounce(() => {
+    if(this.state.query) {
+      BooksAPI.search(this.state.query, 20).then((foundBooks) => {
+        if(!foundBooks.error) this.setState({ foundBooks });
+        else this.setState({ foundBooks: [] });
+      });
+    }
+  }, 300);
 
   updateQuery = (query) => {
-    this.setState({ query })
-    if(query.length !== 0) this.searchBooks(query);
-    else this.setState({ query: '', foundBooks: []} );
+    if(query) {
+      this.setState({ query: query.trim() });
+      this.debouncedSearch();
+    }
+    else {
+      this.setState({ foundBooks: [] });
+      this.setState({ query: '' });
+    }
   }
 
   render() {
