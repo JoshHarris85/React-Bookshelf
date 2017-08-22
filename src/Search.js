@@ -21,7 +21,16 @@ class Search extends React.Component {
   debouncedSearch = debounce(() => {
     if(this.state.query) {
       BooksAPI.search(this.state.query, 20).then((foundBooks) => {
-        if(!foundBooks.error) this.setState({ foundBooks });
+        if(!foundBooks.error) {
+          foundBooks.forEach((foundBook) => {
+            for(let myBook of this.props.myBooks) {
+              if(foundBook.id === myBook.id) {
+                foundBook.shelf = myBook.shelf;
+              }
+            }
+          });
+          this.setState({ foundBooks });
+        }
         else this.setState({ foundBooks: [] });
       });
     }
@@ -41,14 +50,6 @@ class Search extends React.Component {
   render() {
     const { onUpdateBook, myBooks } = this.props;
     const { foundBooks, query } = this.state;
-
-    foundBooks.forEach((foundBook) => {
-      for(let myBook of myBooks) {
-        if(foundBook.id === myBook.id) {
-          foundBook.shelf = myBook.shelf;
-        }
-      }
-    });
 
     return (
       <div className="search-books">
