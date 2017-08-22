@@ -1,11 +1,11 @@
-# Udacity React Nanodegree library project
+# Udacity React My Reads Project
 This is the first project for the Udacity React Nanodegree program.
 The application is a library that allows you to search with the Udacity API,
 set books to certain shelves within your library, and view basic book information.
 
-## How to run
-`npm install` within the project directory
-`npm start` within the project directory
+## Installation
+`npm install` within the project directory to install dependencies.
+`npm start` within the project directory to start the app on localhost.
 
 ## What You're Getting
 ```
