@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/JoshHarris85/React-Bookshelf.svg?&style=shield)](https://circleci.com/gh/JoshHarris85/React-Bookshelf)
+[![Code Climate](https://codeclimate.com/github/JoshHarris85/React-Bookshelf/badges/gpa.svg)](https://codeclimate.com/github/JoshHarris85/React-Bookshelf)
+
 # Udacity React My Reads Project
 This is the first project for the Udacity React Nanodegree program.
 The application is a library that allows you to search with the Udacity API,
