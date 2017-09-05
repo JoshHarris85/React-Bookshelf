@@ -4,6 +4,7 @@ import * as BooksAPI from './BooksAPI'
 import Library from './Library'
 import Search from './Search'
 import './App.css'
+import { BrowserRouter } from 'react-router-dom';
 
 class BooksApp extends React.Component {
   state = {
@@ -34,25 +35,27 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-
-        <Route exact path='/' render={() => (
-          <Library
-          books={books}
-          shelves={SHELVES}
-          onUpdateBook={(book, shelf) => {
-            this.updateBook(book, shelf)
-          }}
-          />
-        )}/>
-
-        <Route exact path='/search' render={() => (
-          <Search
-          myBooks={books}
-          onUpdateBook={(book, shelf) => {
-            this.updateBook(book, shelf)
-          }}
-          />
-        )}/>
+        <BrowserRouter>
+          <Route exact path='/' render={() => (
+            <Library
+            books={books}
+            shelves={SHELVES}
+            onUpdateBook={(book, shelf) => {
+              this.updateBook(book, shelf)
+            }}
+            />
+          )}/>
+        </BrowserRouter>
+        <BrowserRouter>
+          <Route exact path='/search' render={() => (
+            <Search
+            myBooks={books}
+            onUpdateBook={(book, shelf) => {
+              this.updateBook(book, shelf)
+            }}
+            />
+          )}/>
+        </BrowserRouter>
 
       </div>
     )
