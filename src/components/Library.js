@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Shelf from './Shelf'
 import SearchButton from './SearchButton'
-import './App.css'
 
 class Library extends React.Component {
-
+  // propTypes to force props coming in to be of certain types
   static propTypes = {
     books: PropTypes.array.isRequired,
     shelves: PropTypes.array.isRequired,
@@ -13,6 +12,7 @@ class Library extends React.Component {
   }
 
   render() {
+    // Setting local constants so we don't have to this.props.books we can just type 'books'
     const { books, shelves, onUpdateBook } = this.props
 
     return (
@@ -22,6 +22,7 @@ class Library extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
+            {/* Map over all types of shelves and put their info in the component */}
           { shelves.map((shelf) => (
             <Shelf
               books={books.filter((book) => book.shelf === shelf.name)}
@@ -32,6 +33,7 @@ class Library extends React.Component {
           ))}
           </div>
         </div>
+        {/* search button component */}
         <SearchButton/>
       </div>
     )

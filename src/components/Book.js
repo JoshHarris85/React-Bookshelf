@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ShelfChanger from './ShelfChanger'
-import './App.css'
 
 class Book extends React.Component {
 

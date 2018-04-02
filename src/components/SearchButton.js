@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './App.css'
 
 class SearchButton extends React.Component {
 
   render() {
     return (
       <div className="open-search">
-        <Link to='/search'>Add a book</Link>
+      {/* React Router DOM Link used with React-Router */}
+        <Link to="/search">Add a book</Link>
       </div>
     )
   }

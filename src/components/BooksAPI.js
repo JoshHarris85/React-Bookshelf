@@ -12,6 +12,9 @@ const headers = {
   'Authorization': token
 }
 
+// fetch is similiar to ajax. The main difference is
+// that fetch will always return a promise even on
+// an unsuccessful call.
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then(res => res.json())
