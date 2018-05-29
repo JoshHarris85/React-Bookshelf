@@ -39,9 +39,8 @@ for you to use with your app.
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
-## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+## API
 
 ### `getAll()`
 * Returns a Promise which resolves to a JSON object containing a collection of book objects.
